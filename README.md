@@ -18,8 +18,10 @@ namespace pcysl5edgo.BurstEncoding
 {
   public unsafe static class Cp932Decoder
   {
+    public static int GetCharCount(byte* ptr, int length);
     public static ulong GetCharCount(byte* ptr, ulong length);
-    public static void GetChars(byte* ptr, ulong length, ushort* str);
+    public static int GetChars(byte* ptr, int length, ushort* str);
+    public static ulong GetChars(byte* ptr, ulong length, ushort* str);
   }
 }
 ```
