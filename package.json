@@ -1,7 +1,7 @@
 {
     "name": "jp.pcysl5edgo.burstdecodercp932",
     "displayName": "Static Decoder of Cp932",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "unity": "2018.3",
     "description": "This package provides static CP932 Decoder.\n\nThis can be used in the Burst Jobs.",
     "keywords": [

@@ -2,7 +2,7 @@
 {
     public unsafe static class Cp932Decoder
     {
-        static ulong GetCharCount(byte* ptr, ulong length)
+        public static ulong GetCharCount(byte* ptr, ulong length)
         {
             ulong charCount = 0;
             while (length > 0)
@@ -20,7 +20,7 @@
             return charCount;
         }
         // 安全性？　知るか！
-        static void GetChars(byte* ptr, ulong length, ushort* str)
+        public static void GetChars(byte* ptr, ulong length, ushort* str)
         {
             while (length > 0)
             {
