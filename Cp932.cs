@@ -15,6 +15,7 @@
                     continue;
                 }
                 length -= 2;
+                ++ptr;
                 ++charCount;
             }
             return charCount;
