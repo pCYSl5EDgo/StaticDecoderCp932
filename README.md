@@ -12,6 +12,8 @@ https://note.mu/fuqunaga/n/ne331cb5600fe
 導入方法は上のリンクがかなりわかりやすいので参考にしてみてください。
 
 ## 使用方法
+
+```csharp
 namespace pcysl5edgo.BurstEncoding
 {
   public unsafe static class Cp932Decoder
@@ -20,3 +22,4 @@ namespace pcysl5edgo.BurstEncoding
     public static void GetChars(byte* ptr, ulong length, ushort* str);
   }
 }
+```
