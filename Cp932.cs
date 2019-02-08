@@ -10780,7 +10780,7 @@ namespace pcysl5edgo.BurstEncoding
                         break;
                 }
             }
-            return totalStrLength;
+            return (ulong)totalStrLength;
         }
     }
 }
