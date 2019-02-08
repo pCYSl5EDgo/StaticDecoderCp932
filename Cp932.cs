@@ -1,4 +1,4 @@
-﻿namespace pcysl5edgo.BurstEncoding
+namespace pcysl5edgo.BurstEncoding
 {
     public unsafe static class Cp932Decoder
     {
@@ -20,13 +20,34 @@
             }
             return charCount;
         }
-        // 安全性？　知るか！
-        public static void GetChars(byte* ptr, ulong length, ushort* str)
+        public static int GetCharCount(byte* ptr, int length)
         {
+            int charCount = 0;
+            while (length > 0)
+            {
+                byte currentByte = *ptr++;
+                if (currentByte <= 0x7f || (currentByte >= 0xa1 && currentByte <= 0xdf))
+                {
+                    ++charCount;
+                    --length;
+                    continue;
+                }
+                length -= 2;
+                ++ptr;
+                ++charCount;
+            }
+            return charCount;
+        }
+        // 安全性？　知るか！
+        public static int GetChars(byte* ptr, int length, ushort* str) => (int)GetChars(ptr, length, str);
+        public static ulong GetChars(byte* ptr, ulong length, ushort* str)
+        {
+            var totalStrLength = 0;
             while (length > 0)
             {
                 byte currentByte = *ptr++;
                 --length;
+                ++totalStrLength;
                 if (currentByte <= 0x7f)
                 {
                     *str++ = (ushort)currentByte;
@@ -38,6 +59,7 @@
                     continue;
                 }
                 --length;
+                ++totalStrLength;
                 switch ((currentByte << 8) + (*ptr++))
                 {
                     case 0x8140:
@@ -10758,6 +10780,7 @@
                         break;
                 }
             }
+            return totalStrLength;
         }
     }
 }
