@@ -39,7 +39,7 @@ namespace pcysl5edgo.BurstEncoding
             return charCount;
         }
         // 安全性？　知るか！
-        public static int GetChars(byte* ptr, int length, ushort* str) => (int)GetChars(ptr, length, str);
+        public static int GetChars(byte* ptr, int length, ushort* str) => (int)GetChars(ptr, (ulong)length, str);
         public static ulong GetChars(byte* ptr, ulong length, ushort* str)
         {
             var totalStrLength = 0;
